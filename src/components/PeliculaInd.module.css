@@ -1,0 +1,15 @@
+.peliculaInd{
+    list-style: none;
+    font-size: 1rem;
+    text-align: center;
+    
+}
+
+.peliculaImg{
+    border-radius: 20px;
+    background-color: antiquewhite;
+}
+
+.peliculaImg:hover{
+    opacity: 0.8;
+}

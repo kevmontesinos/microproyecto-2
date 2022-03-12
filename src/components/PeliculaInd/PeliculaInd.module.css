@@ -2,21 +2,16 @@
     list-style: none;
     font-size: 1rem;
     text-align: center;
-    color:brown
-
-  
+    
 }
 
 .peliculaImg{
     border-radius: 20px;
-    border-color: rgb(255, 0, 0);
-    border: 1px solid rgb(0, 0, 0);
-    
+    background-color: antiquewhite;
 }
 
 .peliculaImg:hover{
     opacity: 0.8;
-    
 }
 
 .movieName{

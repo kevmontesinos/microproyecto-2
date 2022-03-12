@@ -1,5 +1,5 @@
 import styles from "./Search.module.css"
-import searchImg from "./search.png";
+import searchImg from "./search.png"
 import { useState } from "react"
 import { useSearchParams } from "react-router-dom";
 

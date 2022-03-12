@@ -3,6 +3,7 @@ import Page404 from "./pages/Page404"
 import DetallesPage from "./pages/DetallesPage";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import styles from "./App.module.css";
+import ListaPeliculasPage from "./pages/ListaPeliculasPage";
 
 
 function App() {
@@ -14,8 +15,10 @@ function App() {
       
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
-        <Route path="/movies/:movieID" element={<DetallesPage />}></Route>
+        <Route path="/movie/:movieID" element={<DetallesPage />}></Route>
+        <Route path="/movies/" element={<ListaPeliculasPage />}></Route>
         <Route path="*" element={<Page404 />}></Route>
+      
       </Routes>
     </Router>
 

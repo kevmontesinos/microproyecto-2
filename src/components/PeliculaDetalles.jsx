@@ -35,6 +35,13 @@ function PeliculaDetalles() {
             <p><strong>Title: </strong>{movie.title}</p>
             <p><strong>Overview: </strong> {movie.overview}</p>
             <p><strong>Genres: </strong> {movie.genres.map(genre => genre.name).join(", ")}</p>
+            <p><strong>Original Language: </strong> {movie.original_language}</p>
+            <p><strong>Budget: </strong> {movie.budget} USD</p>
+            <p><strong>Popularity: </strong> {movie.popularity}</p>
+            <p><strong>Production Companies: </strong> {movie.production_companies.map(prod => prod.name).join(", ")}</p>
+            <p><strong>Release Date: </strong> {movie.release_date}</p>
+            <p><strong>Status: </strong> {movie.status}</p>
+
         </div>
     </div>);
 }

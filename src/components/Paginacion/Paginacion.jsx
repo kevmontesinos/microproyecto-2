@@ -6,7 +6,7 @@ function Paginacion(props) {
     const [query, setQuery] = useSearchParams();
     const page = query.get("page");
     const search = query.get("search")
-    const text = props.paso === 1 ? "Siguiente página" : "Anterior página"
+    const text = props.paso === 1 ? " Next >>" : "<< Back "
 
     const refreshPage = () => {
         setTimeout(() => {
@@ -20,6 +20,7 @@ function Paginacion(props) {
         refreshPage()
     }
     return (
+
         <form onSubmit={handleSubmit} className={styles.botonConteiner}>
             <button type="submit" className={styles.boton}>{text}</button>
         </form>

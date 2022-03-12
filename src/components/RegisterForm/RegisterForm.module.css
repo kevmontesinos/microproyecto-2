@@ -11,6 +11,9 @@
     margin: auto;
     padding: 10px;
     color: white;
+    padding-top: 25px;
+    max-width: 400px;
+
 }
 
 .inputGroup {

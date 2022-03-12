@@ -1,3 +1,5 @@
+import movies from "../../movies.json";
+
 import { useState, useEffect } from "react";
 import MovieCard from "../PeliculaInd/PeliculaInd";
 import styles from "./PeliculasLista.module.css"

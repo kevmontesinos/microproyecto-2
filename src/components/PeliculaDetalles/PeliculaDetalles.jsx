@@ -30,7 +30,7 @@ function PeliculaDetalles() {
     }
 
     return (<div className={styles.detallesConteiner}>
-        <img className={styles.columna + " " + styles.peliculaImg} src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.title} />
+        <img className={styles.peliculaImg} src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.title} />
         <div className={styles.columna}>
             <p><strong>Title: </strong>{movie.title}</p>
             <p><strong>Overview: </strong> {movie.overview}</p>

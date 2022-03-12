@@ -8,8 +8,10 @@
     max-width: 30rem;
     margin: 2rem;
     height: auto;
-    text-align: justify;
+    text-align: center;
     font-size: 1.2rem;
+    background-color: rgb(255, 255, 255);
+    border-radius: 10%;
 }
 
 .peliculaImg{

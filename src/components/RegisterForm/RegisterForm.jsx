@@ -47,11 +47,29 @@ function RegisterForm() {
 
   return (
     <div className={styles.container}>
-            <div className = {styles.formContainer}>
+        <div className = {styles.formContainer}>
+            <div className = {styles.styling}>
+                <h1 className={styles.title}>Register</h1>
+
                 <form onSubmit= {handleSubmit}>
                     <div className={styles.inputGroup}>
-                        <label htmlFor="email"><h3>Enter your email</h3></label>
+
                         <input 
+                            className={styles.inputs}
+                            name="name"
+                            id="name"
+                            type="name"
+                            placeholder="Enter your name"
+                            value={values.name}
+                            onChange={handleOnChange}
+                            />
+                            
+                    </div>
+
+                    <div className={styles.inputGroup}>
+
+                        <input 
+                            className={styles.inputs}
                             name="email"
                             id="email"
                             type="email"
@@ -59,10 +77,13 @@ function RegisterForm() {
                             value={values.email}
                             onChange={handleOnChange}
                             />
+                            
                     </div>
+
                     <div className={styles.inputGroup}>
-                        <label htmlFor="password"><h3>Enter your password</h3></label>
+
                         <input 
+                            className={styles.inputs}
                             name="password"
                             id="password"
                             type="password"
@@ -71,27 +92,24 @@ function RegisterForm() {
                             onChange={handleOnChange}
                             />
                     </div>
+
                     <div className={styles.inputGroup}>
-                        <label htmlFor="name"><h3>Enter your name</h3></label>
-                        <input 
-                            name="name"
-                            id="name"
-                            type="name"
-                            placeholder="Enter your name"
-                            value={values.name}
-                            onChange={handleOnChange}
-                            />
+                        <button className={styles.submits} type="submit" onClick={handleSubmit}>
+                            Register
+                        </button>
+
+                        <button className={styles.submits} type="button" onClick={handleGoogleLogin}>
+                            <img className={styles.iconPic} src ="https://cdn.discordapp.com/attachments/374315817854173186/951963394842460180/google.png"></img>
+                        </button>   
                     </div>
-                    <button type="submit" onClick={handleSubmit}>
-                    Send
-                    </button>
+                    
                 </form>
-                <button type="button" onClick={handleGoogleLogin}>
-                    <img className={styles.iconPic} src ="https://cdn.discordapp.com/attachments/374315817854173186/951963394842460180/google.png"></img>
-                </button>
-            </div>    
-        </div>
-  );
+                
+            </div>
+
+        </div>    
+    </div>
+);
 }
 
 export default RegisterForm;

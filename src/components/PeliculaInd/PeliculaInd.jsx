@@ -9,9 +9,9 @@ function PeliculaInd({ movie }) {
 
     return (
         <li className={styles.peliculaInd}>
-            <Link to={"/movies/" + id}><img width="100%" height="450px" className={styles.peliculaImg} src={imageURL} alt={title} /></Link>
-
-            <h2>{title}</h2>
+            <Link to={"/movies/" + id}><img width="100%" height="450px" className={styles.peliculaImg} src={imageURL} alt={title} />
+                <h2 className={styles.movieName}>{title}</h2>
+            </Link>
         </li>);
 }
 

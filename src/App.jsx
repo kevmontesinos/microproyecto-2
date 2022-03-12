@@ -10,6 +10,7 @@ import NavBar from "./components/NavBar/NavBar";
 function App() {
   return (
     <Router>
+      <div className="background"></div>
       <NavBar/>
       <Routes>
       <Route path="/login" element ={<LoginPage/>}></Route>

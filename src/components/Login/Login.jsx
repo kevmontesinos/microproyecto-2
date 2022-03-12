@@ -31,36 +31,47 @@ function LoginModule() {
     return (
         <div className={styles.container}>
             <div className = {styles.formContainer}>
-                <form onSubmit= {handleSubmit}>
-                    <div className={styles.inputGroup}>
-                        <label htmlFor="email"><h3>Enter your email</h3></label>
-                        <input 
-                            name="email"
-                            id="email"
-                            type="email"
-                            placeholder="Enter your email"
-                            value={values.email}
-                            onChange={handleOnChange}
-                            />
-                    </div>
-                    <div className={styles.inputGroup}>
-                        <label htmlFor="password"><h3>Enter your password</h3></label>
-                        <input 
-                            name="password"
-                            id="password"
-                            type="password"
-                            placeholder="Enter your password"
-                            value={values.password}
-                            onChange={handleOnChange}
-                            />
-                    </div>
-                    <button type="submit" onClick={handleSubmit}>
-                    Send
-                    </button>
-                </form>
-                <button type="button" onClick={handleGoogleLogin}>
-                    <img className={styles.iconPic} src ="https://cdn.discordapp.com/attachments/374315817854173186/951963394842460180/google.png"></img>
-                </button>
+                <div className = {styles.styling}>
+                    <h1 className={styles.title}>Login</h1>
+
+                    <form onSubmit= {handleSubmit}>
+                        <div className={styles.inputGroup}>
+                            <input 
+                                className={styles.inputs}
+                                name="email"
+                                id="email"
+                                type="email"
+                                placeholder="Enter your email"
+                                value={values.email}
+                                onChange={handleOnChange}
+                                />
+                                
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <input 
+                                className={styles.inputs}
+                                name="password"
+                                id="password"
+                                type="password"
+                                placeholder="Enter your password"
+                                value={values.password}
+                                onChange={handleOnChange}
+                                />
+                        </div>
+                        <div className={styles.inputGroup}>
+                            <button className={styles.submits} type="submit" onClick={handleSubmit}>
+                                Log in
+                            </button>
+                
+                            <button className={styles.submits} type="button" onClick={handleGoogleLogin}>
+                                <img className={styles.iconPic} src ="https://cdn.discordapp.com/attachments/374315817854173186/951963394842460180/google.png"></img>
+                            </button>   
+                        </div>
+                        
+                    </form>
+                    
+                </div>
+
             </div>    
         </div>
     );

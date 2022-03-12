@@ -5,7 +5,6 @@ function HomePage() {
     return (
         <div>
             <main>
-                <Search/>
                 <PeliculasLista/>
             </main>
         </div>

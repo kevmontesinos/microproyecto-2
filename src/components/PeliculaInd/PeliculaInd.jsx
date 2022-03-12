@@ -3,7 +3,7 @@ import { Link } from "react-router-dom"
 
 
 function PeliculaInd({ movie }) {
-    const { id, poster_path, title } = movie;
+    const { id, poster_path, title, original_language, popularity } = movie;
 
     const imageURL = "https://image.tmdb.org/t/p/w300/" + poster_path;
 
@@ -16,3 +16,8 @@ function PeliculaInd({ movie }) {
 }
 
 export default PeliculaInd;
+
+/*           <div>
+                <h3>{original_language}</h3>
+                <h3>{popularity}</h3>
+            </div> */

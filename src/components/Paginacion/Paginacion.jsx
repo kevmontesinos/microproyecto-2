@@ -19,9 +19,12 @@ function Paginacion(props) {
         setQuery({ search: search, page: (parseInt(page) + props.paso) })
         refreshPage()
     }
+
+    const margin = (text == " Next >>" ? {marginLeft: "15px"} : {marginRight: "15px"});
+
     return (
 
-        <form onSubmit={handleSubmit} className={styles.botonConteiner}>
+        <form onSubmit={handleSubmit} className={styles.botonConteiner} style={margin}>
             <button type="submit" className={styles.boton}>{text}</button>
         </form>
     )

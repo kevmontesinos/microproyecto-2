@@ -1,11 +1,11 @@
 import styles from "./Login.module.css"
-// import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { auth, googleProvider } from '../../utils/firebaseConfig';
 
 function LoginModule() {
 
-    // const history = useHistory();
+    const navigate = useNavigate();
     const[values,setValues] = useState({
         email: "",
         password: "",
@@ -20,12 +20,12 @@ function LoginModule() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         await auth.signInWithEmailAndPassword(values.email, values.password);
-        history.push('/');
+        navigate.push('/');
     };
 
     const handleGoogleLogin = async () => {
         await auth.signInWithPopup(googleProvider);
-        history.push('/');
+        navigate.push('/');
       };
 
     return (

@@ -13,8 +13,8 @@ function ListaPeliculasPage() {
     <div>
       <Search />
       <PeliculasLista modo="lista" />
-      <div style={{display: "flex", margin: "10px"}}>
-        {page > 1 ? <Paginacion paso = {-1}/> : <br />}
+      <div style={{display: "flex"}}>
+        {page > 1 ? <Paginacion paso = {-1}  /> : <br />}
         <Paginacion paso={1} />
       </div>
     </div>);

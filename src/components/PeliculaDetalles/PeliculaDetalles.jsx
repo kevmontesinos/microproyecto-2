@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import movie from "../movie.json"
+import movie from "../../movie.json"
 import styles from "./PeliculaDetalles.module.css";
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 function PeliculaDetalles() {
 
@@ -30,11 +30,18 @@ function PeliculaDetalles() {
     }
 
     return (<div className={styles.detallesConteiner}>
-        <img className={styles.columna + " " + styles.peliculaImg} src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.title} />
+        <img className={styles.peliculaImg} src={"https://image.tmdb.org/t/p/w300/" + movie.poster_path} alt={movie.title} />
         <div className={styles.columna}>
             <p><strong>Title: </strong>{movie.title}</p>
             <p><strong>Overview: </strong> {movie.overview}</p>
             <p><strong>Genres: </strong> {movie.genres.map(genre => genre.name).join(", ")}</p>
+            <p><strong>Original Language: </strong> {movie.original_language}</p>
+            <p><strong>Budget: </strong> {movie.budget} USD</p>
+            <p><strong>Popularity: </strong> {movie.popularity}</p>
+            <p><strong>Production Companies: </strong> {movie.production_companies.map(prod => prod.name).join(", ")}</p>
+            <p><strong>Release Date: </strong> {movie.release_date}</p>
+            <p><strong>Status: </strong> {movie.status}</p>
+
         </div>
     </div>);
 }

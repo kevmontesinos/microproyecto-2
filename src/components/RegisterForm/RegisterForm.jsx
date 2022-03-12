@@ -1,35 +1,52 @@
-import styles from "./Login.module.css"
+import styles from './RegisterForm.module.css';
 // import { useHistory } from 'react-router-dom';
+import { auth } from '../../utils/firebaseConfig';
 import { useState } from 'react';
-import { auth, googleProvider } from '../../utils/firebaseConfig';
 
-function LoginModule() {
 
-    // const history = useHistory();
-    const[values,setValues] = useState({
-        email: "",
-        password: "",
-    });
+function RegisterForm() {
+//   const history = useHistory();
+//   const { createUser } = useContext(UserContext);
 
-    const handleOnChange = (event) => {
-        const { value, name: inputName } = event.target;
-        console.log({ inputName, value });
-        setValues({ ...values, [inputName]: value });
-    }
+  const [values, setValues] = useState({
+    name: '',
+    email: '',
+    password: '',
+  });
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        await auth.signInWithEmailAndPassword(values.email, values.password);
-        history.push('/');
-    };
+  const handleGoogleLogin = async () => {
+    console.log('GOOGLE_LOGIN');
+  };
 
-    const handleGoogleLogin = async () => {
-        await auth.signInWithPopup(googleProvider);
-        history.push('/');
-      };
+  const handleOnChange = (event) => {
+    const { value, name: inputName } = event.target;
+    console.log({ inputName, value });
+    setValues({ ...values, [inputName]: value });
+  };
 
-    return (
-        <div className={styles.container}>
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await auth.createUserWithEmailAndPassword(
+      values.email,
+      values.password
+    );
+
+    await createUser(
+      {
+        name: values.name,
+        email: values.email,
+        favorites: [],
+        role: 'admin',
+      },
+      response.user.uid
+    );
+    history.push('/');
+
+    console.log(response.user.uid);
+  };
+
+  return (
+    <div className={styles.container}>
             <div className = {styles.formContainer}>
                 <form onSubmit= {handleSubmit}>
                     <div className={styles.inputGroup}>
@@ -54,6 +71,17 @@ function LoginModule() {
                             onChange={handleOnChange}
                             />
                     </div>
+                    <div className={styles.inputGroup}>
+                        <label htmlFor="name"><h3>Enter your name</h3></label>
+                        <input 
+                            name="name"
+                            id="name"
+                            type="name"
+                            placeholder="Enter your name"
+                            value={values.name}
+                            onChange={handleOnChange}
+                            />
+                    </div>
                     <button type="submit" onClick={handleSubmit}>
                     Send
                     </button>
@@ -63,7 +91,7 @@ function LoginModule() {
                 </button>
             </div>    
         </div>
-    );
+  );
 }
 
-export default LoginModule;
+export default RegisterForm;

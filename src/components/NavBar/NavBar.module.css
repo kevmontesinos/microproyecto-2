@@ -1,0 +1,35 @@
+.navbarContainer {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding: 0 80px;
+    margin-left: auto;
+    list-style: none;
+    background: rgb(0, 0, 0);
+    color: #fff;
+    margin-bottom: 60px;
+}
+
+.title{
+    display: flex;
+    color: rgb(151, 1, 1);
+}
+
+.rightside{
+    margin-left: 2em;
+    display: flex;
+}
+
+.pages{
+    display: flex;
+    color: rgb(151, 1, 1);
+}
+
+.farRight{
+    margin-left: 2em;
+}
+
+.iconPic{
+    width: 33px;
+    height: 33px;
+}

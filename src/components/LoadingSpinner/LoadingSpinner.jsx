@@ -1,4 +1,4 @@
-import imagen from "../images/loadingSpinner.gif";
+import imagen from "./loadingSpinner.gif";
 import styles from "./LoadingSpinner.module.css"
 
 function LoadingSpinner() {

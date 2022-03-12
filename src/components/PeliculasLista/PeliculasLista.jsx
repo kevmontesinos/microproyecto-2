@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
-import MovieCard from "./PeliculaInd";
+import MovieCard from "../PeliculaInd/PeliculaInd";
 import styles from "./PeliculasLista.module.css"
-import LoadingSpinner from "./LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { useSearchParams } from "react-router-dom";
 
 function PeliculasLista(props) {

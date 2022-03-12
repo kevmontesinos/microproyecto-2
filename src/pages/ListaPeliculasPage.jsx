@@ -1,6 +1,6 @@
-import PeliculasLista from "../components/PeliculasLista";
-import Search from "../components/Search";
-import Paginacion from "../components/Paginacion";
+import PeliculasLista from "../components/PeliculasLista/PeliculasLista";
+import Search from "../components/Search/Search";
+import Paginacion from "../components/Paginacion/Paginacion";
 import styles from "./ListaPeliculasPage.module.css"
 
 import { useSearchParams } from "react-router-dom";

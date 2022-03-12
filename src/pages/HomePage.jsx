@@ -1,5 +1,5 @@
-import PeliculasLista from "../components/PeliculasLista"
-import Search from "../components/Search";
+import PeliculasLista from "../components/PeliculasLista/PeliculasLista"
+import Search from "../components/Search/Search";
 import Login from "../components/Login/Login"
 import { Link } from "react-router-dom"
 

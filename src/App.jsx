@@ -11,17 +11,17 @@ import ListaPeliculasPage from "./pages/ListaPeliculasPage";
 function App() {
   return (
     <Router>
-      <div className="background"></div>
-      <NavBar/>
-      <Routes>
-      <Route path="/login" element ={<LoginPage/>}></Route>
-      <Route path="/register" element ={<RegisterPage/>}></Route>
-        <Route path="/" element={<HomePage />}></Route>
-        <Route path="/movies/:movieID" element={<DetallesPage />}></Route>
-        <Route path="/movies/" element={<ListaPeliculasPage />}></Route>
-        <Route path="*" element={<Page404 />}></Route>
-      
-      </Routes>
+        <div className="background"></div>
+        <NavBar />
+        <Routes>
+          <Route path="/login" element={<LoginPage />}></Route>
+          <Route path="/register" element={<RegisterPage />}></Route>
+          <Route path="/" element={<HomePage />}></Route>
+          <Route path="/movies/:movieID" element={<DetallesPage />}></Route>
+          <Route path="/movies/" element={<ListaPeliculasPage />}></Route>
+          <Route path="*" element={<Page404 />}></Route>
+
+        </Routes>
     </Router>
 
   );

@@ -7,7 +7,7 @@ import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth"
 
 function RegisterForm() {
   const navigate = useNavigate();
-  //const { createUser } = useContext(UserContext);
+  //const { setUser } = useContext(UserContext);
 
   const [values, setValues] = useState({
     name: '',
@@ -17,6 +17,7 @@ function RegisterForm() {
 
   const handleGoogleLogin = async () => {
     await signInWithPopup(auth, googleProvider)
+    navigate("/movies?page=1&&search=")
   };
 
   const handleOnChange = (event) => {
@@ -30,20 +31,17 @@ function RegisterForm() {
     const response = await createUserWithEmailAndPassword(auth,
       values.email,
       values.password
-    );
+    ).then(navigate(`/movies`));
 
-    await createUser(
-      {
-        name: values.name,
-        email: values.email,
-        favorites: [],
-        role: 'admin',
-      },
-      response.user.uid
-    );
-    navigate('/movies');
-
-    console.log(response.user.uid);
+    // await setUser(
+    //   {
+    //     name: values.name,
+    //     email: values.email,
+    //   },
+    //   response.user.uid
+    // );
+  
+     console.log("ASD")
   };
 
   return (

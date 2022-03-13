@@ -20,12 +20,9 @@ function RegisterForm() {
     {
       name: response.user.displayName,
       email: response.user.email,
-      favorites: [],
-      role: 'admin',
       id: response.user.uid
     }
     setSession(user);
-    console.log(user.id)
     navigate("/movies?page=1&&search=")
   }
 
@@ -45,10 +42,25 @@ function RegisterForm() {
     const response = await createUserWithEmailAndPassword(auth,
       values.email,
       values.password
-    );
+    ).catch((error) => {
+        // Handle Errors here.
+      let errorCode = error.code;
+      let errorMessage = error.message;
+      if (errorCode === 'auth/weak-password') {
+        alert('Password needs to be 6 character long.');
+      } 
+      else if (errorCode == 'auth/email-already-in-use'){
+        alert('Email already in use, please Log in.');
+        navigate("/login");
+      }
+      else {
+        alert(errorMessage);
+      }
+      console.log(error);
+      })  
     sessionCheck(response)
+    console.log(response)
   };
-
   return (
     <div className={styles.container}>
       <div className={styles.formContainer}>

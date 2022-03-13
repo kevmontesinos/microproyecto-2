@@ -29,9 +29,6 @@ function LoginModule() {
           id: response.user.uid
         }
         setSession(user);
-        console.log(response)
-        console.log(user.id)
-        console.log(user.name)
         navigate("/movies?page=1&&search=")
       }
 

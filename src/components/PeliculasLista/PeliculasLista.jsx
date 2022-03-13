@@ -41,7 +41,6 @@ function PeliculasLista(props) {
             .then((result) => result.json())
             .then(data => {
                 setMovies(data.results)
-                console.log(data)
                 setLoading(false)
             }
             ), []);

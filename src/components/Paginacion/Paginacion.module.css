@@ -1,5 +1,8 @@
 .botonConteiner{
-  width: 80%;
+  width: 80px;
+  height: 50px;
+  margin: auto;
+  border-radius: 20px;
   margin: auto;
 }
 

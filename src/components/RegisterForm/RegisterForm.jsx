@@ -1,13 +1,13 @@
 import styles from './RegisterForm.module.css';
 import { useNavigate } from 'react-router-dom';
 import { auth, googleProvider } from '../../utils/firebaseConfig';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth"
-
+import { sessionContext } from '../../context/SessionContext';
 
 function RegisterForm() {
   const navigate = useNavigate();
-  //const { setUser } = useContext(UserContext);
+  const [session, setSession] = useContext(sessionContext)
 
   const [values, setValues] = useState({
     name: '',
@@ -31,17 +31,19 @@ function RegisterForm() {
     const response = await createUserWithEmailAndPassword(auth,
       values.email,
       values.password
-    ).then(navigate(`/movies`));
+    );
 
-    // await setUser(
-    //   {
-    //     name: values.name,
-    //     email: values.email,
-    //   },
-    //   response.user.uid
-    // );
-  
-     console.log("ASD")
+    const user =
+      {
+        name: values.name,
+        email: values.email,
+        favorites: [],
+        role: 'admin',
+        id: response.user.uid
+      }
+      setSession(user);
+      console.log(response.user.uid);
+      navigate('/login');
   };
 
   return (

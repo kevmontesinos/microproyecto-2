@@ -6,24 +6,27 @@ import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import NavBar from "./components/NavBar/NavBar";
 import ListaPeliculasPage from "./pages/ListaPeliculasPage";
+import SessionProvider from './context/SessionContext';
+
 
 
 function App() {
   return (
-    <Router>
+    <SessionProvider>
+      <Router>
         <div className="background"></div>
-        <NavBar />
+        <NavBar/>
         <Routes>
-          <Route path="/login" element={<LoginPage />}></Route>
-          <Route path="/register" element={<RegisterPage />}></Route>
+        <Route path="/login" element ={<LoginPage/>}></Route>
+        <Route path="/register" element ={<RegisterPage/>}></Route>
           <Route path="/" element={<HomePage />}></Route>
           <Route path="/movies/:movieID" element={<DetallesPage />}></Route>
           <Route path="/movies/" element={<ListaPeliculasPage />}></Route>
           <Route path="*" element={<Page404 />}></Route>
-
+        
         </Routes>
-    </Router>
-
+      </Router>
+    </SessionProvider>
   );
 }
 

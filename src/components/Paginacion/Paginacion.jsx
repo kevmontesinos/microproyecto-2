@@ -8,16 +8,9 @@ function Paginacion(props) {
     const search = query.get("search")
     const text = props.paso === 1 ? " Next >>" : "<< Back "
 
-    const refreshPage = () => {
-        setTimeout(() => {
-            window.location.reload(false)
-        }, 250);
-    }
-
     const handleSubmit = (event) => {
         event.preventDefault();
         setQuery({ search: search, page: (parseInt(page) + props.paso) })
-        refreshPage()
     }
 
     const margin = (text == " Next >>" ? {marginLeft: "15px"} : {marginRight: "15px"});

@@ -12,7 +12,7 @@ function PeliculasLista(props) {
     const [query, setQuery] = useSearchParams();
     const page = query.get("page");
     const search = query.get("search")
-
+    console.log(page)
 
     let URL = "https://api.themoviedb.org/3/discover/movie?page=" + page
 
@@ -43,7 +43,7 @@ function PeliculasLista(props) {
                 setMovies(data.results)
                 setLoading(false)
             }
-            ), []);
+            ), [page, search]);
 
     if (loading) {
         return (<LoadingSpinner />)

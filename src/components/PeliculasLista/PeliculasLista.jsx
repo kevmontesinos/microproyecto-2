@@ -43,7 +43,7 @@ function PeliculasLista(props) {
                 setMovies(data.results)
                 setLoading(false)
             }
-            ), []);
+            ), [search, page]);
 
     if (loading) {
         return (<LoadingSpinner />)

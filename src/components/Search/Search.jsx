@@ -8,16 +8,9 @@ function Search() {
     const [query, setQuery] = useSearchParams();
     const search = query.get("search");
 
-    const refreshPage = () => {
-        setTimeout(() => {
-            window.location.reload(false)
-        }, 250);
-    }
-
     const handleSubmit = (event) => {
         event.preventDefault()
         setQuery({ search: text, page: 1});
-        refreshPage()
     }
     return (
         <form onSubmit={handleSubmit}>

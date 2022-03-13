@@ -1,5 +1,3 @@
-import movies from "../../movies.json";
-
 import { useState, useEffect } from "react";
 import MovieCard from "../PeliculaInd/PeliculaInd";
 import styles from "./PeliculasLista.module.css"
@@ -12,7 +10,7 @@ function PeliculasLista(props) {
     const [query, setQuery] = useSearchParams();
     const page = query.get("page");
     const search = query.get("search")
-
+    console.log(page)
 
     let URL = "https://api.themoviedb.org/3/discover/movie?page=" + page
 

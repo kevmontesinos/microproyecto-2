@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import movie from "../../movie.json"
 import styles from "./PeliculaDetalles.module.css";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 

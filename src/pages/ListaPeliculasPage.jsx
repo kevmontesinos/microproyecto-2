@@ -9,13 +9,21 @@ function ListaPeliculasPage() {
 
   const [query, setQuery] = useSearchParams();
   const page = query.get("page");
+  const navigate = useNavigate()
   const [session, setSession] = useContext(sessionContext)
+
+  useEffect(() => {
+    if(session == null) {
+      alert("Please Log in First")
+      navigate("/login", { replace: true });
+    }
+  }, [session])
 
   return (
     <div>
         <Search />
         <PeliculasLista modo="lista" />
-        <div style={{display: "flex" , width : "50%" , "justify-content": "center", margin: auto}}>
+        <div style={{display: "flex" , width : "50%" , "justify-content": "center", margin: "auto"}}>
           {page > 1 ? <Paginacion paso = {-1}  /> : <br />}
           <Paginacion paso={1} />
         </div>

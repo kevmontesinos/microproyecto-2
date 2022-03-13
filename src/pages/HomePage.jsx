@@ -11,6 +11,7 @@ function HomePage() {
     const style = {color:"white", textAlign: "center"}
     const box = {backgroundColor: "red", padding: "15px", width: "300px", borderRadius: "20px", margin: "auto"}
     const button = {width: "100%", display:"flex"}
+    const size = {"font-size" : "50px"}
     return (
         <div>
             <main>
@@ -19,7 +20,7 @@ function HomePage() {
                     <h2 style = {{...style, ...box}} >Lista de Peliculas</h2>
                 </Link>}
                 <PeliculasLista modo = "home" />         
-                <h2 style={style}> Estrenos</h2>
+                <h2 style={{...style, ...size}}> Estrenos</h2>
                 <PeliculasLista modo = "estrenos" />
             </main>
         </div>

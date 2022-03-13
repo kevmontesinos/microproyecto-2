@@ -64,7 +64,7 @@ function PeliculasLista(props) {
         return (
             <ul className={styles.peliculasLista}>
                 {
-                    movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+                    movies.slice(0, 8).map((movie) => <MovieCard key={movie.id} movie={movie} />)
                 }
             </ul>
         )

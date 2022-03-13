@@ -1,7 +1,7 @@
 .navbarContainer {
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 40px;
     padding: 0 80px;
     margin-left: auto;
     list-style: none;

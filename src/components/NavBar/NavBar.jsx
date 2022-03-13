@@ -2,15 +2,10 @@ import styles from "./NavBar.module.css"
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { sessionContext } from '../../context/SessionContext';
-import { signOut } from "firebase/auth"
 import { useNavigate } from "react-router-dom";
 
-function NavBar() {
 
-    const user = false;
-    const handleLogOut = () => {
-        auth.signOut()
-    }
+function NavBar() {
 
     const [session, setSession] = useContext(sessionContext)
     const navigate = useNavigate();
@@ -18,6 +13,7 @@ function NavBar() {
         setSession(null);
         navigate('/login');
     }
+    session ? console.log(session.name) : console.log("Nada")
     return (
         <div className={styles.navbarContainer}>
                 <Link to="/" className={styles.link}>

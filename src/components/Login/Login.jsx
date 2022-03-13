@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useContext } from 'react';
 import { auth, googleProvider } from '../../utils/firebaseConfig';
 import { sessionContext } from '../../context/SessionContext';
-import { signInWithEmailAndPassword } from "firebase/auth"
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
 
 function LoginModule() {
 
@@ -40,7 +40,7 @@ function LoginModule() {
     };
 
     const handleGoogleLogin = async () => {
-        await auth.signInWithPopup(googleProvider);
+        await signInWithPopup(auth, googleProvider);
         navigate.push('/');
     };
 

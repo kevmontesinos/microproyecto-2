@@ -16,9 +16,24 @@ function LoginModule() {
 
     const handleOnChange = (event) => {
         const { value, name: inputName } = event.target;
-        console.log({ inputName, value });
         setValues({ ...values, [inputName]: value });
     }
+
+    const sessionCheck = (response) => {
+        const user =
+        {
+          name: response.user.displayName,
+          email: response.user.email,
+          favorites: [],
+          role: 'admin',
+          id: response.user.uid
+        }
+        setSession(user);
+        console.log(response)
+        console.log(user.id)
+        console.log(user.name)
+        navigate("/movies?page=1&&search=")
+      }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -26,22 +41,12 @@ function LoginModule() {
         values.email,
         values.password
     );
-        console.log(response)
-    const user =
-      {
-        name: values.name,
-        email: values.email,
-        favorites: [],
-        role: 'admin',
-        id: response.user.uid,
-      }
-      setSession(user);
-      navigate('/');
+      sessionCheck(response)
     };
 
     const handleGoogleLogin = async () => {
-        await signInWithPopup(auth, googleProvider);
-        navigate.push('/');
+        const response = await signInWithPopup(auth, googleProvider);
+        sessionCheck(response)
     };
 
 

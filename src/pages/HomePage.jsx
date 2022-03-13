@@ -20,7 +20,7 @@ function HomePage() {
                     <h2 style = {{...style, ...box}} >Lista de Peliculas</h2>
                 </Link>}
                 <PeliculasLista modo = "home" />         
-                <h2 style={{...style, ...size}}> Estrenos</h2>
+                <h2 style={{...style, ...size}}> Upcoming Movies</h2>
                 <PeliculasLista modo = "estrenos" />
             </main>
         </div>

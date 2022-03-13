@@ -50,33 +50,20 @@ function PeliculasLista(props) {
         return (<LoadingSpinner />)
     }
 
-    if (props.modo === "home") {
-        return (
-            <ul className={styles.peliculasLista}>
-                {
-                    movies.slice(0, 8).map((movie) => <MovieCard key={movie.id} movie={movie} />)
-                }
-            </ul>
-        )
-    }
-
-    if (props.modo === "estrenos") {
-        return (
-            <ul className={styles.peliculasLista}>
-                {
-                    movies.slice(0, 8).map((movie) => <MovieCard key={movie.id} movie={movie} />)
-                }
-            </ul>
-        )
-    }
-
-
     return (
-        <ul className={styles.peliculasLista}>
-            {
-                movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
-            }
-        </ul>
+        <div>
+            {(props.modo === "home" || props.modo == "estrenos") ?
+                (<ul className={styles.peliculasLista}>
+                    {
+                        movies.slice(0, 8).map((movie) => <MovieCard key={movie.id} movie={movie} />)
+                    }
+                </ul>) :
+                (< ul className={styles.peliculasLista} >
+                    {
+                        movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+                    }
+                </ul >)}
+        </div>
     );
 }
 

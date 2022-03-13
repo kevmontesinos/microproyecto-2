@@ -15,14 +15,28 @@ function RegisterForm() {
     password: '',
   });
 
-  const handleGoogleLogin = async () => {
-    await signInWithPopup(auth, googleProvider)
+  const sessionCheck = (response) => {
+    const user =
+    {
+      name: response.user.displayName,
+      email: response.user.email,
+      favorites: [],
+      role: 'admin',
+      id: response.user.uid
+    }
+    setSession(user);
+    console.log(user.id)
     navigate("/movies?page=1&&search=")
+  }
+
+  const handleGoogleLogin = async () => {
+    const response = await signInWithPopup(auth, googleProvider)
+    sessionCheck(response)
+
   };
 
   const handleOnChange = (event) => {
     const { value, name: inputName } = event.target;
-    console.log({ inputName, value });
     setValues({ ...values, [inputName]: value });
   };
 
@@ -32,18 +46,7 @@ function RegisterForm() {
       values.email,
       values.password
     );
-
-    const user =
-      {
-        name: values.name,
-        email: values.email,
-        favorites: [],
-        role: 'admin',
-        id: response.user.uid
-      }
-      setSession(user);
-      console.log(response.user.uid);
-      navigate('/login');
+    sessionCheck(response)
   };
 
   return (

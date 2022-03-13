@@ -1,11 +1,14 @@
 import styles from "./Login.module.css"
-// import { useHistory } from 'react-router-dom';
-import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react';
 import { auth, googleProvider } from '../../utils/firebaseConfig';
+import { sessionContext } from '../../context/SessionContext';
+import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth"
 
 function LoginModule() {
 
-    // const history = useHistory();
+    const navigate = useNavigate();
+    const [session, setSession] = useContext(sessionContext)
     const[values,setValues] = useState({
         email: "",
         password: "",
@@ -13,20 +16,36 @@ function LoginModule() {
 
     const handleOnChange = (event) => {
         const { value, name: inputName } = event.target;
-        console.log({ inputName, value });
         setValues({ ...values, [inputName]: value });
     }
 
+    const sessionCheck = (response) => {
+        const user =
+        {
+          name: response.user.displayName,
+          email: response.user.email,
+          favorites: [],
+          role: 'admin',
+          id: response.user.uid
+        }
+        setSession(user);
+        navigate("/movies?page=1&&search=")
+      }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await auth.signInWithEmailAndPassword(values.email, values.password);
-        history.push('/');
+        const response = await signInWithEmailAndPassword(auth,
+        values.email,
+        values.password
+    );
+      sessionCheck(response)
     };
 
     const handleGoogleLogin = async () => {
-        await auth.signInWithPopup(googleProvider);
-        history.push('/');
-      };
+        const response = await signInWithPopup(auth, googleProvider);
+        sessionCheck(response)
+    };
+
 
     return (
         <div className={styles.container}>

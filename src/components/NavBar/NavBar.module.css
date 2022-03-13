@@ -1,7 +1,7 @@
 .navbarContainer {
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 40px;
     padding: 0 80px;
     margin-left: auto;
     list-style: none;
@@ -16,8 +16,10 @@
 }
 
 .rightside{
-    margin-left: 2em;
+    margin-left: auto;
     display: flex;
+    cursor: pointer;
+    margin-right: 20px
 }
 
 .pages{

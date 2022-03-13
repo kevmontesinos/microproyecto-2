@@ -12,7 +12,7 @@ function PeliculasLista(props) {
     const [query, setQuery] = useSearchParams();
     const page = query.get("page");
     const search = query.get("search")
-
+    console.log(page)
 
     let URL = "https://api.themoviedb.org/3/discover/movie?page=" + page
 
@@ -41,42 +41,28 @@ function PeliculasLista(props) {
             .then((result) => result.json())
             .then(data => {
                 setMovies(data.results)
-                console.log(data)
                 setLoading(false)
             }
-            ), []);
+            ), [page, search]);
 
     if (loading) {
         return (<LoadingSpinner />)
     }
 
-    if (props.modo === "home") {
-        return (
-            <ul className={styles.peliculasLista}>
-                {
-                    movies.slice(0, 8).map((movie) => <MovieCard key={movie.id} movie={movie} />)
-                }
-            </ul>
-        )
-    }
-
-    if (props.modo === "estrenos") {
-        return (
-            <ul className={styles.peliculasLista}>
-                {
-                    movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
-                }
-            </ul>
-        )
-    }
-
-
     return (
-        <ul className={styles.peliculasLista}>
-            {
-                movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
-            }
-        </ul>
+        <div>
+            {(props.modo === "home" || props.modo == "estrenos") ?
+                (<ul className={styles.peliculasLista}>
+                    {
+                        movies.slice(0, 8).map((movie) => <MovieCard key={movie.id} movie={movie} />)
+                    }
+                </ul>) :
+                (< ul className={styles.peliculasLista} >
+                    {
+                        movies.map((movie) => <MovieCard key={movie.id} movie={movie} />)
+                    }
+                </ul >)}
+        </div>
     );
 }
 

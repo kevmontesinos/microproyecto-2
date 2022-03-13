@@ -1,5 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 import styles from "./paginacion.module.css"
+import { useEffect } from "react";
 
 
 function Paginacion(props) {
@@ -8,16 +9,18 @@ function Paginacion(props) {
     const search = query.get("search")
     const text = props.paso === 1 ? " Next >>" : "<< Back "
 
+    useEffect(() => {
+        window.scrollTo(0, 0)
+      }, [page, search])
+
     const handleSubmit = (event) => {
         event.preventDefault();
         setQuery({ search: search, page: (parseInt(page) + props.paso) })
     }
 
-    const margin = (text == " Next >>" ? {marginLeft: "15px"} : {marginRight: "15px"});
-
     return (
 
-        <form onSubmit={handleSubmit} className={styles.botonConteiner} style={margin}>
+        <form onSubmit={handleSubmit} className={styles.botonConteiner} >
             <button type="submit" className={styles.boton}>{text}</button>
         </form>
     )

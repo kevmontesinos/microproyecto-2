@@ -24,8 +24,6 @@ function LoginModule() {
         {
           name: response.user.displayName,
           email: response.user.email,
-          favorites: [],
-          role: 'admin',
           id: response.user.uid
         }
         setSession(user);

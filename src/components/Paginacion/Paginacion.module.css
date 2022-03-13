@@ -1,15 +1,20 @@
 .botonConteiner{
-  width: 80px;
+  width: 50px;
   height: 50px;
   margin: auto;
   border-radius: 20px;
   margin: auto;
+  justify-content: center;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 .paginacionConteiner{
   width: 50%;
   height: 100%;
   justify-content: center;
+  margin-bottom: 50px;
+
 }
 
 .boton {
@@ -22,6 +27,7 @@
   border: none;
   color: white;
   align-items: center;
+  margin-bottom: 20px;
 
 }
   

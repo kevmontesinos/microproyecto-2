@@ -1,5 +1,3 @@
-import movies from "../../movies.json";
-
 import { useState, useEffect } from "react";
 import MovieCard from "../PeliculaInd/PeliculaInd";
 import styles from "./PeliculasLista.module.css"
@@ -43,7 +41,7 @@ function PeliculasLista(props) {
                 setMovies(data.results)
                 setLoading(false)
             }
-            ), [page, search]);
+            ), [search, page]);
 
     if (loading) {
         return (<LoadingSpinner />)
